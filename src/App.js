@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [error, setError] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <div className="app">
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          What do you want to know?
+          <button className="surprise">Surpise me!</button>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <div className="input-container">
+          <input value={""} placeholder="When is Christmas...?" onChange={""} />
+          {!error && <button>Ask me</button>}
+          {error && <button>Clear</button>}
+        </div>
+        {error && <p>{error}</p>}
+        <div className="search-result">
+          <div key={""}>
+            <p className="answer"></p>
+          </div>
+        </div>
+      </div>
   );
-}
+};
 
 export default App;
